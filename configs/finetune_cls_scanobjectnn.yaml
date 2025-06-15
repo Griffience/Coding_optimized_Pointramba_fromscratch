@@ -1,0 +1,29 @@
+experiment:
+  exp_name: "finetune_cls_scan"
+  save_dir: "cls_output"
+  vis_interval: 10
+
+train:
+  batch_size: 32
+  epochs: 300
+  learning_rate: 0.001
+  warmup_epochs: 10
+  weight_decay: 0.01
+  clip_grad_norm: 1.0
+  use_amp: true
+  early_stop_patience: 30
+  pretrain_path: ""  # 填预训练路径
+  freeze_backbone: false
+  variant: "main_split"  # ScanObjectNN的 split种类，默认main_split
+
+model:
+  trans_dim: 384
+  depth: 6
+  group_size: 32
+  num_group: 128
+  encoder_dims: 384
+  seg_num_all: 15  # 这里还是留着一份，Model设计需要
+
+meta:
+  dataset: "scanobjectnn"
+  num_classes: 15

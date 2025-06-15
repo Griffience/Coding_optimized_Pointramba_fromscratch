@@ -1,0 +1,26 @@
+experiment:
+  exp_name: "trambaultra_pretrain"
+  save_dir: "Seg_output"
+  vis_interval: 10         # 多少epoch保存一次可视化（可选，不一定有用）
+
+train:
+  epochs: 300
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.01
+  warmup_epochs: 10
+  clip_grad_norm: 1.0
+  use_amp: true
+  early_stop_patience: 30    # 其实预训练一般不early stop
+  mask_ratio: 0.4            # ✅ mask掉40%的groups
+  loss_type: "chamfer"    #后续进行消融实验 - 创新性消融:对是否用自己设计的 Importance-Aware Masking Loss 进行探索
+
+model:
+  trans_dim: 384
+  depth: 6
+  group_size: 32
+  num_group: 128
+  encoder_dims: 384
+  seg_num_all: 50          # 预留给seg任务头，预训练其实暂时不用
+  use_bicross_fusion: true
+  use_importance_score: true

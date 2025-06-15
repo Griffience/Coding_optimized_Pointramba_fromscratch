@@ -1,0 +1,28 @@
+experiment:
+  exp_name: "finetune_cls_modelnet"
+  save_dir: "cls_output"
+  vis_interval: 10
+
+train:
+  batch_size: 32
+  epochs: 300
+  learning_rate: 0.001
+  warmup_epochs: 10
+  weight_decay: 0.01
+  clip_grad_norm: 1.0
+  use_amp: true
+  early_stop_patience: 30
+  pretrain_path: ""  # 填预训练路径
+  freeze_backbone: false
+
+model:
+  trans_dim: 384
+  depth: 6
+  group_size: 32
+  num_group: 128
+  encoder_dims: 384
+  seg_num_all: 40
+
+meta:
+  dataset: "modelnet40"
+  num_classes: 40

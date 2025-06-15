@@ -1,0 +1,30 @@
+experiment:
+  exp_name: "finetune_partseg"
+  save_dir: "output"
+  vis_interval: 10
+
+train:
+  epochs: 300
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0005
+  warmup_epochs: 10
+  clip_grad_norm: 1.0
+  use_amp: true
+  early_stop_patience: 30
+  pretrain_path: ""         # 预训练路径，如果为空就是随机初始化
+  freeze_backbone: false    # 是否冻结主干，仅训练任务头
+
+model:
+  trans_dim: 384
+  depth: 6
+  group_size: 32
+  num_group: 128
+  encoder_dims: 384
+  seg_num_all: 50
+  mask_ratio: 0.4
+
+meta:
+  num_classes: 16
+  seg_num: [4, 2, 2, 4, 4, 3, 3, 2, 4, 2, 6, 2, 3, 3, 3, 3]
+  start_index: [0, 4, 6, 8, 12, 16, 19, 22, 24, 28, 30, 36, 38, 41, 44, 47]
