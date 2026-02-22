@@ -1,10 +1,8 @@
 ## Coding_optimized_PoinTramba From scratch!!
-The public version is a simple visible structue of my codes , only offers my minds and style . The Final Experiments is still cotinuing...   
-该公开版本项目仅展示了本人的思路,代码流程及风格,最终实验尚未结束...(痛苦.jpg)
+The public version is a simple visible structue of the code. The Final Experiments is still cotinuing...   
 
 ### PoinTrambaUltra   
 PointTrambaUltra : A moderate-depth hybrid point cloud backbone that balances structured local encoding (EdgeConv), sequence modeling (Mamba), and self-attention-based global fusion (Transformer).   
-一个平衡结构化局部编码（EdgeConv）、序列建模（Mamba）和基于自注意力的全局融合（Transformer）的中深度混合点云主干。   
 
 
 ### DataSet  
@@ -41,18 +39,7 @@ Please create a data file and modify the dataset path in configuration files (da
 
 ```
 
-因为 ShapeNetPart原始数据是：
-超多文件夹（02691156, 02958343, …）
-每个类文件夹里是很多很多 .txt 文件（一个 .txt 就是一个 shape的点云数据）
-但官方没有直接提供好 train/test 划分！
-所以需要运行脚本：
-```bash
-scripts/generate_shapenet_split.py
-```
-遍历所有这些 .txt
-随机打乱
-按 85%/15% 划分为 train_split.txt 和 test_split.txt
-保存到 data/ShapeNetPart/ 目录下
+
 
 
 ### Acknowledgement
